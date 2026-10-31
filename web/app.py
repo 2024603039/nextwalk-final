@@ -137,7 +137,12 @@ with map_tab:
  left,right=st.columns([1.45,1],gap='large')
  with left:
   st.subheader('공주시 기회 지도')
-  m=folium.Map(location=[36.46,127.12],zoom_start=10,tiles='OpenStreetMap')
+  m = folium.Map(
+    location=[36.46, 127.12],
+    zoom_start=12,
+    st_folium(m, height=570, width="stretch", returned_objects=[])
+    control_scale=True
+)
   for _,r in filtered.iterrows():
    folium.Marker([r['위도'],r['경도']],tooltip=r['직무'],popup=folium.Popup(f'<b>{html.escape(str(r["직무"]))}</b><br>{html.escape(str(r["지역"]))}<br>{html.escape(str(r["보수"]))}',max_width=250),icon=folium.Icon(color='blue',icon='briefcase',prefix='fa')).add_to(m)
   st_folium(m,height=570,use_container_width=True,returned_objects=[])
