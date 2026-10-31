@@ -436,27 +436,7 @@ with st.sidebar:
 # 7. 메인 배너
 # =========================================================
 
-st.markdown(
-    """
-<div class="hero">
-    <div class="eyebrow">
-        GONGJU · CAREER REDISCOVERY PLATFORM
-    </div>
-
-    <h1>
-        경험은 끝나지 않습니다.<br>
-        다음 기회가 시작됩니다.
-    </h1>
-
-    <p>
-        공주시 중장년·시니어를 위한 새로운 일자리 탐색 지도<br>
-        익숙한 경력에서 새로운 가능성을 발견하세요.
-    </p>
-</div>
-""",
-    unsafe_allow_html=True
-)
-
+st.markdown('<div class="hero"><div class="eyebrow">GONGJU · CAREER REDISCOVERY PLATFORM</div><h1>경험은 끝나지 않습니다.<br>다음 기회가 시작됩니다.</h1><p>공주시 중장년·시니어를 위한 새로운 일자리 탐색 지도<br>익숙한 경력에서 새로운 가능성을 발견하세요.</p></div>', unsafe_allow_html=True)
 
 # =========================================================
 # 8. 실제 추천 API 호출
