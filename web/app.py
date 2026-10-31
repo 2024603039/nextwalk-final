@@ -137,15 +137,10 @@ with map_tab:
  left,right=st.columns([1.45,1],gap='large')
  with left:
   st.subheader('공주시 기회 지도')
-  m = folium.Map(
-    location=[36.46, 127.12],
-    zoom_start=12,
-    st_folium(m, height=570, width="stretch", returned_objects=[])
-    control_scale=True
-)
-  for _,r in filtered.iterrows():
-   folium.Marker([r['위도'],r['경도']],tooltip=r['직무'],popup=folium.Popup(f'<b>{html.escape(str(r["직무"]))}</b><br>{html.escape(str(r["지역"]))}<br>{html.escape(str(r["보수"]))}',max_width=250),icon=folium.Icon(color='blue',icon='briefcase',prefix='fa')).add_to(m)
-  st_folium(m,height=570,use_container_width=True,returned_objects=[])
+          m = folium.Map(location=[36.46, 127.12], zoom_start=12, tiles="OpenStreetMap")
+        for _, r in filtered.iterrows():
+            folium.Marker([r['위도'], r['경도']], tooltip=r['직무']).add_to(m)
+        st_folium(m, height=570, use_container_width=True, returned_objects=[])
  with right:
   st.subheader(f'발견한 일자리 · {len(filtered)}건')
   if filtered.empty:st.info('조건에 맞는 예시 일자리가 없습니다. 필터를 조정해 보세요.')
